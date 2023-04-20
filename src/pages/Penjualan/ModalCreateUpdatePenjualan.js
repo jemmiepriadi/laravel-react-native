@@ -60,7 +60,6 @@ export default class ModalCreateUpdatePenjualan extends Component {
         body.ID_NOTA = this.state.NOTA
     }
     body.TGL = this.state.TANGGAL;
-
     body.KODE_PELANGGAN = this.state.KODE_PELANGGAN;
     body.SUBTOTAL = this.state.SUBTOTAL;
 
@@ -123,7 +122,9 @@ export default class ModalCreateUpdatePenjualan extends Component {
               <RNDateTimePicker
               value={new Date(moment(this.state.TANGGAL).toISOString())}
               dateFormat="d MMM yyyy"
-              onConfirm={(date)=>handleChange("TANGGAL", date)}
+              timeZoneOffsetInMinutes={60}
+              onChange={(event, value)=>{
+                this.handleChange("TANGGAL", value)}}
               mode='date'
               />
               <Text>Kode Pelanggan</Text>
