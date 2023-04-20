@@ -9,10 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-community/cli": "^11.2.0",
+    "@react-native-community/cli-platform-ios": "^11.2.0",
+    "@react-native-community/datetimepicker": "6.7.3",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "axios": "^0.19.2",
     "expo": "~48.0.11",
     "expo-status-bar": "~1.4.4",
+    "moment": "^2.29.4",
+    "package": "^1.0.1",
     "react": "18.2.0",
-    "react-native": "0.71.6"
+    "react-native": "^0.71.6",
+    "react-native-asset": "^2.1.0",
+    "react-native-date-picker": "^4.2.12",
+    "react-native-eject": "^0.2.0",
+    "react-native-paper": "^5.7.0",
+    "react-native-table-component": "^1.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

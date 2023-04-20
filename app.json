@@ -1,4 +1,6 @@
 {
+  "name": "react-laravel-mobile-app",
+  "displayName": "react-laravel-mobile-app",
   "expo": {
     "name": "react-laravel-mobile-app",
     "slug": "react-laravel-mobile-app",
