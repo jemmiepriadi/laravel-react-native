@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.react-laravel-mobile-app-mergeDebugResources-21:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/Users/jemmiepriadi/.gradle/caches/transforms-3/4a22c56bd155f6fe55c0e2a2811f7ace/transformed/core-1.7.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/Users/jemmiepriadi/.gradle/caches/transforms-3/b2ea3509956ed09c0d23f03f2ed37f35/transformed/appcompat-1.4.1/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}
