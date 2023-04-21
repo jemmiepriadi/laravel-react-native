@@ -137,7 +137,7 @@ export default class ModalCreateUpdatePenjualan extends Component {
                 mode='date'
                 />}
                 {Platform.OS === 'android' && (
-                      <Text style={{fontSize: 16}}> {moment(this.state.TANGGAL).format('D MMMM yyyy HH:mm')} </Text>
+                      <Text style={{fontSize: 16,height: 40,borderWidth: 1,padding: 10,}}> {moment(this.state.TANGGAL).format('D MMMM yyyy')} </Text>
                   )}
               </TouchableOpacity>
               
@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
   },
   TextInput: {
     height: 40,
-    // margin: 12,
     borderWidth: 1,
     padding: 10,
   },
