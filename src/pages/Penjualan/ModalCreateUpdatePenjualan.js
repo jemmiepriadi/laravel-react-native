@@ -1,4 +1,4 @@
-import { Modal, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Modal, Platform, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { Component } from 'react'
 import * as PenjualansApi from '../../apis/penjualanApi';
 import moment from 'moment';
@@ -18,6 +18,7 @@ export default class ModalCreateUpdatePenjualan extends Component {
         NOTA: "",
         KODE_PELANGGAN: "",
         SUBTOTAL: "",
+        visible:Platform.OS=='android' ? false: true,
         // Penjualan Penjualan properties
 
     }
@@ -102,7 +103,7 @@ export default class ModalCreateUpdatePenjualan extends Component {
             <View style={{flex:1}}>
               <Pressable
                 style={{ alignSelf:'flex-end'}}
-                onPress={() =>handleChange("showCreateUpdateModal", false)}>
+                onPress={() =>closeModalCreateUpdateAndRefreshTable()}>
                 <Text >X</Text>
               </Pressable>
             </View>
@@ -119,14 +120,27 @@ export default class ModalCreateUpdatePenjualan extends Component {
             />
             </View>}
               <Text>Tanggal</Text>
-              <RNDateTimePicker
-              value={new Date(moment(this.state.TANGGAL).toISOString())}
-              dateFormat="d MMM yyyy"
-              timeZoneOffsetInMinutes={60}
-              onChange={(event, value)=>{
-                this.handleChange("TANGGAL", value)}}
-              mode='date'
-              />
+              <TouchableOpacity onPress={()=>this.setState({
+                visible:true
+              })}>
+                {this.state.visible && <RNDateTimePicker
+                value={new Date(moment(this.state.TANGGAL).toISOString())}
+                dateFormat="d MMM yyyy"
+                timeZoneOffsetInMinutes={60}
+                display="default"
+                onChange={(event, value)=>{
+                  this.handleChange("TANGGAL", value)
+                  this.setState({
+                    visible: Platform.OS == 'ios'
+                  })
+                }}
+                mode='date'
+                />}
+                {Platform.OS === 'android' && (
+                      <Text style={{fontSize: 16}}> {moment(this.state.TANGGAL).format('D MMMM yyyy HH:mm')} </Text>
+                  )}
+              </TouchableOpacity>
+              
               <Text>Kode Pelanggan</Text>
               <TextInput
               placeholder="Kode Pelanggan"
