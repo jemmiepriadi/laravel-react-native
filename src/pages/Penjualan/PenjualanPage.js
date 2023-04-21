@@ -1,4 +1,4 @@
-import { Alert, Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Button, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { Component } from 'react'
 import ModalCreateUpdatePenjualan from './ModalCreateUpdatePenjualan';
 import { Cell, Row, Rows, Table } from 'react-native-table-component';
@@ -101,41 +101,41 @@ class Body extends Component {
   render() {
     const penjualan = this.props.penjualan !== [] ? this.props.penjualan : []
     return (
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>No</DataTable.Title>
-          <DataTable.Title>ID_Nota</DataTable.Title>
-          <DataTable.Title>Tanggal</DataTable.Title>
-          <DataTable.Title>Kode Pelanggan</DataTable.Title>
-          <DataTable.Title>Subtotal</DataTable.Title>
-          <DataTable.Title>Action</DataTable.Title>
-          <DataTable.Title></DataTable.Title>
-        </DataTable.Header>
-          {penjualan.map((data, index)=>{
-            return(
-        <DataTable.Row key={data.ID_NOTA}>
-              <DataTable.Cell>{index+1}</DataTable.Cell>
-              <DataTable.Cell>{data.ID_NOTA}</DataTable.Cell>
-              <DataTable.Cell>{data.TGL}</DataTable.Cell>
-              <DataTable.Cell>{data.KODE_PELANGGAN}</DataTable.Cell>
-              <DataTable.Cell>{data.SUBTOTAL}</DataTable.Cell>
-              <DataTable.Cell>
-                <TouchableOpacity style={[styles.button, styles.buttonEdit]}
-            onPress={() => {this.onClickUpdate(data)}} >
-                  <Text style={{color:'white'}}>Edit</Text>
-                </TouchableOpacity>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <TouchableOpacity style={[styles.button, styles.buttonDanger]}
-            onPress={() => {this.props.dialogDelete(data)}} >
-                  <Text style={{color:'white'}}>Delete</Text>
-                </TouchableOpacity>
-              </DataTable.Cell>
-        </DataTable.Row>
+        <DataTable>
+          <DataTable.Header>
+            <DataTable.Title>No</DataTable.Title>
+            <DataTable.Title>ID_Nota</DataTable.Title>
+            <DataTable.Title>Tanggal</DataTable.Title>
+            <DataTable.Title>Kode Pelanggan</DataTable.Title>
+            <DataTable.Title>Subtotal</DataTable.Title>
+            <DataTable.Title>Action</DataTable.Title>
+            <DataTable.Title></DataTable.Title>
+          </DataTable.Header>
+            {penjualan.map((data, index)=>{
+              return(
+          <DataTable.Row key={data.ID_NOTA}>
+                <DataTable.Cell>{index+1}</DataTable.Cell>
+                <DataTable.Cell>{data.ID_NOTA}</DataTable.Cell>
+                <DataTable.Cell>{data.TGL}</DataTable.Cell>
+                <DataTable.Cell>{data.KODE_PELANGGAN}</DataTable.Cell>
+                <DataTable.Cell>{data.SUBTOTAL}</DataTable.Cell>
+                <DataTable.Cell>
+                  <TouchableOpacity style={[styles.button, styles.buttonEdit]}
+              onPress={() => {this.onClickUpdate(data)}} >
+                    <Text style={{color:'white'}}>Edit</Text>
+                  </TouchableOpacity>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <TouchableOpacity style={[styles.button, styles.buttonDanger]}
+              onPress={() => {this.props.dialogDelete(data)}} >
+                    <Text style={{color:'white'}}>{Platform.OS == 'ios' ? 'Delete' : 'Del'}</Text>
+                  </TouchableOpacity>
+                </DataTable.Cell>
+          </DataTable.Row>
 
-            )
-          })}
-      </DataTable>
+              )
+            })}
+        </DataTable>
     )
   }
 }
